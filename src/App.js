@@ -6,15 +6,15 @@ import {loadTasks,addTask} from './actions/tasksAction';
 
 import Config from '../src/config/config';
 
+import ToDoList from './Components/ToDoList/ToDoList';
 import './App.css';
-import ToDoList from './Components/ToDoList/ToDoList'
 
 // const servPORT = process.env.PORT || 'http://localhost:3001';
 
 class App extends Component {
 
     componentDidMount(){
-        axios.get(`https://fierce-dusk-60155.herokuapp.com:${Config.server_port}/tasks`).then(({data,status})=>{if(status === 200){this.props.loadTasksFunc(data)}});
+        axios.get(`http://localhost:${Config.server_port}/tasks`).then(({data,status})=>{if(status === 200){this.props.loadTasksFunc(data)}});
     }
 
     addInput = (event) => {
