@@ -1,4 +1,8 @@
-const app = require('express')();
+// const app = require('express')();
+const express = require('express');
+const path = require('path');
+const app = express();
+
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -7,6 +11,8 @@ const todoRoutes = require('./routes/todoRoutes');
 const config = require('./src/config/config');
 const DB = config.db_url;
 const server_port = config.server_port;
+
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
