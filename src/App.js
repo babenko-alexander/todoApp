@@ -7,11 +7,12 @@ import {loadTasks,addTask} from './actions/tasksAction';
 import './App.css';
 import ToDoList from './Components/ToDoList/ToDoList'
 
+const servPORT = process.env.PORT || 5000;
+
 class App extends Component {
 
-
     componentDidMount(){
-        axios.get('http://localhost:3001/tasks').then(({data,status})=>{if(status === 200){this.props.loadTasksFunc(data)}});
+        axios.get(`http://localhost:${servPORT}/tasks`).then(({data,status})=>{if(status === 200){this.props.loadTasksFunc(data)}});
     }
 
     addInput = (event) => {
