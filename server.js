@@ -12,7 +12,7 @@ const config = require('./src/config/config');
 const DB = config.db_url;
 const server_port = config.server_port;
 
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, 'build')));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
