@@ -14,7 +14,7 @@ import './App.css';
 class App extends Component {
 
     componentDidMount(){
-        axios.get(`http://localhost:${Config.server_port}/tasks`).then(({data,status})=>{if(status === 200){this.props.loadTasksFunc(data)}});
+        axios.get(`/api/tasks`).then(({data,status})=>{if(status === 200){this.props.loadTasksFunc(data)}});
     }
 
     addInput = (event) => {
